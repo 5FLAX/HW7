@@ -100,16 +100,22 @@ public class Main {
 
         System.out.println("Задание 8");
 
-        // Начальный год (за 200 лет до текущего года)
-        int startYear = 1800 - 200;
-        // Конечный год (через 100 лет после текущего года)
-        int endYear = 2100 + 100;
+        int currentYear = 2023; // Текущий год
+        int startYear = currentYear - 200; // Начало периода (200 лет назад)
+        int endYear = currentYear + 100; // Конец периода (100 лет вперед)
+        int cometInterval = 79; // Интервал пролета кометы (каждые 79 лет)
 
-        for (int year = startYear; year <= endYear; year++) {
-            if (year % 79 == 0) {
-                System.out.println(year);
-            }
+        // Ближайший год пролета кометы до текущего года
+        int lastFlybyYear = currentYear - (currentYear % cometInterval);
+
+        //Все годы пролета кометы за последние 200 лет
+        System.out.println("Годы пролета кометы за последние 200 лет:");
+        for (int year = lastFlybyYear; year >= startYear; year -= cometInterval) {
+            System.out.println(year);
         }
-        System.out.println("Следующий год появления кометы: " + (startYear + 79));
-        }
+
+        // Следующий год пролета кометы в ближайшие 100 лет
+        System.out.println("Следующий год пролета кометы:");
+        System.out.println(lastFlybyYear + cometInterval);
+    }
     }
